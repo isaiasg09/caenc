@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #1F140E;
+  --color-primary-light: #2C1E16;
+  --color-secondary: #C86237;
+  --color-accent: #D96528;
+  --color-accent-hover: #B8531D;
+  --color-bg-canvas: #FAF6F0;
+  --color-surface: #F2ECE1;
+  --color-surface-hover: #E8DFD1;
+  --color-border: #E2D7C8;
+  --color-text-main: #1A120C;
+  --color-text-muted: #6E5D52;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-body);
+    color: var(--color-text-main);
+    background-color: var(--color-bg-canvas);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    overflow-x: clip;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-feature-settings: "liga" 1, "dlig" 1;
+    letter-spacing: -0.02em;
+  }
+
+  /* Safe interactive areas */
+  button, a {
+    touch-action: manipulation;
+  }
+}
+
+/* Background grain & artisanal texture */
+.bg-grain {
+  background-image: radial-gradient(rgba(31, 20, 14, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.bg-grain-dark {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Menu editorial dotted leader line */
+.menu-leader {
+  flex-grow: 1;
+  border-bottom: 1.5px dotted var(--color-border);
+  margin: 0 0.75rem 0.35rem 0.75rem;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom delicate scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-canvas);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
